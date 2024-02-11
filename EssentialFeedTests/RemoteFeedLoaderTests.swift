@@ -115,8 +115,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         
         sut?.load { capturedResults.append($0) }
         sut = nil
-        
-
+    
         client.complete(with: 200, data: makeItemsJSON([]))
         
         XCTAssertTrue(capturedResults.isEmpty)
@@ -131,13 +130,6 @@ final class RemoteFeedLoaderTests: XCTestCase {
         checkForMemoryLeaks(sut)
         checkForMemoryLeaks(client)
         return (sut, client)
-    }
-    
-    private func checkForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential Memory Leak.", file: file, line: line)
-        }
     }
     
     private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
