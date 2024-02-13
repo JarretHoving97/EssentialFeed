@@ -55,6 +55,17 @@
                ReferencedContainer = "container:EssentialFeed.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3124937D2B7BE0F8006B7FE6"
+               BuildableName = "EssentialFeedAPIEndToEndTests.xctest"
+               BlueprintName = "EssentialFeedAPIEndToEndTests"
+               ReferencedContainer = "container:EssentialFeed.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
