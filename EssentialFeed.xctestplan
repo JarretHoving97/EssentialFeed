@@ -23,8 +23,7 @@
       "identifier" : "31AE8DD82B77B459001E6913",
       "name" : "EssentialFeed"
     },
-    "testExecutionOrdering" : "random",
-    "threadSanitizerEnabled" : true
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
@@ -35,7 +34,6 @@
       }
     },
     {
-      "enabled" : false,
       "target" : {
         "containerPath" : "container:EssentialFeed.xcodeproj",
         "identifier" : "3124937D2B7BE0F8006B7FE6",
