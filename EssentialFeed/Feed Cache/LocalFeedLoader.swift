@@ -7,17 +7,17 @@
 
 import Foundation
 
-class LocalFeedLoader {
+public class LocalFeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
     
-    init(store: FeedStore, currentDate: @escaping () -> Date) {
+    public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
     }
     
-    func save(_ items: [FeedItem], completion: @escaping (Error?) -> Void) {
-  
+    public func save(_ items: [FeedItem], completion: @escaping (Error?) -> Void) {
+        
         store.deletedCachedFeed { [weak self] error in
             guard let self else { return }
             if let cachedDeletionError = error {
@@ -35,13 +35,4 @@ class LocalFeedLoader {
             completion(error)
         }
     }
-}
-
-protocol FeedStore {
-    typealias DeletionCompletion = (Error?) -> Void
-    typealias InsertionCompletion = (Error?) -> Void
-    
-    func deletedCachedFeed(completion: @escaping DeletionCompletion)
-    
-    func insert(_ items: [FeedItem], timestamp: Date, completion: @escaping InsertionCompletion)
 }
