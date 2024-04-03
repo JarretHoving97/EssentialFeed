@@ -9,7 +9,9 @@ import XCTest
 import EssentialFeed
 
 class CodableFeedStore {
-    func retrieve(completion: @escaping FeedStore.RetrievalCompletion) {}
+    func retrieve(completion: @escaping FeedStore.RetrievalCompletion) {
+        completion(.empty)
+    }
 }
 
 
@@ -17,6 +19,7 @@ final class CodableFeedStoreTestss: XCTestCase {
 
     func test_retrieve_deliversEmptyOnCache() {
         let sut = CodableFeedStore()
+        
         let exp = expectation(description: "Wait for cache retrieval")
         sut.retrieve { result in
             switch result {
@@ -29,6 +32,8 @@ final class CodableFeedStoreTestss: XCTestCase {
             
             exp.fulfill()
         }
+        
+        wait(for: [exp], timeout: 1.0)
     }
 
 }
