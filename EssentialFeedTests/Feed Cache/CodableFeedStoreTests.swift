@@ -9,7 +9,6 @@ import XCTest
 import EssentialFeed
 
 
-
 final class CodableFeedStoreTestss: XCTestCase, FailableFeedStore {
     
     override func setUp() {
@@ -211,6 +210,13 @@ final class CodableFeedStoreTestss: XCTestCase, FailableFeedStore {
     }
     
     // MARK: Helpers
+    private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> FeedStore {
+        let sut = CodableFeedStore(storeURL: storeURL ?? testSpecificStoreURL())
+        checkForMemoryLeaks(sut, file: file, line: line)
+        return sut
+    }
+    
+    
     @discardableResult
     private func deleteCache(from sut: FeedStore) -> Error? {
         let exp = expectation(description: "Wait for cache deletion")
@@ -223,12 +229,7 @@ final class CodableFeedStoreTestss: XCTestCase, FailableFeedStore {
         return deletionError
     }
 
-    private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> FeedStore {
-        let sut = CodableFeedStore(storeURL: storeURL ?? testSpecificStoreURL())
-        checkForMemoryLeaks(sut, file: file, line: line)
-        return sut
-    }
-    
+
     @discardableResult
     private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore) -> Error? {
         let exp = expectation(description: "Wait for cache retrieval")
@@ -274,7 +275,6 @@ final class CodableFeedStoreTestss: XCTestCase, FailableFeedStore {
     }
     
     private func testSpecificStoreURL() -> URL {
-        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
         return cachesDirectory().appendingPathComponent("\(type(of: self)).store")
     }
     
