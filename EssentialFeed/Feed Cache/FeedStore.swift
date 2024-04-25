@@ -14,6 +14,7 @@ public enum RetrievedCachedFeedResult {
 }
 
 public protocol FeedStore {
+    
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrievedCachedFeedResult) -> Void
