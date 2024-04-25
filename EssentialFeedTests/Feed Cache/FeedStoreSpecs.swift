@@ -28,10 +28,9 @@ protocol FailableRetrieveFeedStoreSpecs: FeedStoreSpecs {
     func test_retrieve_hasNoSideEffectsOnFailure()
 }
 
-protocol FailableInsertFeedstoreSpecs: FeedStoreSpecs {
+protocol FailableInsertFeedStoreSpecs: FeedStoreSpecs {
     func test_insert_deliversErrorOnInsertionError()
     func test_insert_hasNoSideEffectsOnInsertionError()
-    
 }
 
 protocol FailableDeleteFeedStoreSpecs: FeedStoreSpecs {
@@ -39,4 +38,4 @@ protocol FailableDeleteFeedStoreSpecs: FeedStoreSpecs {
     func test_delete_deliversNoErrorOnNonEmptyCache()
 }
 
-typealias FailableFeedStore = FailableRetrieveFeedStoreSpecs & FailableInsertFeedstoreSpecs & FailableDeleteFeedStoreSpecs
+typealias FailableFeedStore = FailableRetrieveFeedStoreSpecs & FailableInsertFeedStoreSpecs & FailableDeleteFeedStoreSpecs
