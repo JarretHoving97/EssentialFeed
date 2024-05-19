@@ -73,8 +73,10 @@ final class CacheFeedUseCaseTests: XCTestCase {
         
         var receivedResults = [Error?]()
         
-        sut?.save(uniqueImageFeed().models, completion: { receivedResults.append($0)})
-        
+        sut?.save(uniqueImageFeed().models, completion: { result in
+            if case let Result.failure(error) = result { receivedResults.append(error) }
+        })
+
         sut = nil
         store.completeDeletion(with: anyNSError())
         
@@ -87,7 +89,10 @@ final class CacheFeedUseCaseTests: XCTestCase {
         
         var receivedResults = [Error?]()
         
-        sut?.save(uniqueImageFeed().models, completion: { receivedResults.append($0)})
+        sut?.save(uniqueImageFeed().models, completion: { result in
+            if case let Result.failure(error) = result { receivedResults.append(error) }
+        })
+
         store.completeDeletionSuccessfully()
         sut = nil
         store.completeInsertion(with: anyNSError())
@@ -111,8 +116,9 @@ final class CacheFeedUseCaseTests: XCTestCase {
         var receivedError: Error?
         let exp = expectation(description: "Wait for save completion")
         
-        sut.save(uniqueImageFeed().models) { error in
-            receivedError = error
+        sut.save(uniqueImageFeed().models) { result in
+            if case let Result.failure(error) = result { receivedError = error }
+        
             exp.fulfill()
         }
         action()
