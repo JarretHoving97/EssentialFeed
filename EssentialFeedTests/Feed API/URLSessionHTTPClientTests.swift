@@ -17,12 +17,12 @@ class URLSessionHTTPClient: HTTPClient {
     
     struct UnexpectedValuesRepresentation: Error {}
     
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
+    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
         session.dataTask(with: url) { data, response, error in
             if let error {
                 completion(.failure(error))
             } else if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success(data, response))
+                completion(.success((data, response)))
             } else {
                 completion(.failure(UnexpectedValuesRepresentation()))
             }
@@ -151,13 +151,13 @@ final class URLSessionHTTPClientTests: XCTestCase {
         }
     }
     
-    private func resultFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #filePath, line: UInt = #line) -> HTTPClientResult {
+    private func resultFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #filePath, line: UInt = #line) -> HTTPClient.Result {
         URLProtocolStub.stub(data: data, response: response, error: error)
         let sut =  makeSUT(file: file, line: line)
         
         let exp = expectation(description: "Wait for completion")
         
-        var receivedResult: HTTPClientResult!
+        var receivedResult: HTTPClient.Result!
         
         sut.get(from: anyURL()) { result in
             receivedResult = result
