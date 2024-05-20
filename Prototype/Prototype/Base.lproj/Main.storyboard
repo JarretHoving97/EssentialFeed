@@ -26,7 +26,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="569" id="Uqf-re-a1r">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="569" id="Uqf-re-a1r" customClass="FeedImageCell" customModule="Prototype" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="393" height="569"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uqf-re-a1r" id="RPz-lv-kLJ">
@@ -108,6 +108,13 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="71p-hb-tlY" secondAttribute="trailing" id="sTf-X4-fy7"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="Gaz-bf-Yv7" id="ot2-hG-r99"/>
+                                    <outlet property="feedImageContainer" destination="kji-N0-l6Q" id="zgQ-WX-CEj"/>
+                                    <outlet property="feedImageView" destination="Dne-Ri-T3S" id="gxs-AF-eUz"/>
+                                    <outlet property="locationContainer" destination="4KX-HI-EyS" id="eh5-NE-7Yq"/>
+                                    <outlet property="locationLabel" destination="WoA-RG-gVD" id="XoE-5c-Jsw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
