@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+struct FeedImageViewModel {
+    let description: String?
+    let location: String?
+    let imageName: String
+}
 
 final class FeedViewController: UITableViewController {
     
