@@ -9,7 +9,7 @@ import XCTest
 import EssentialFeed
 
 
-final class CodableFeedStoreTestss: XCTestCase, FailableFeedStore {
+final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     
     override func setUp() {
         super.setUp()
@@ -207,6 +207,6 @@ final class CodableFeedStoreTestss: XCTestCase, FailableFeedStore {
     }
     
     private func cachesDirectory() -> URL {
-        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        return FileManager.default.urls(for: .cachesDirectory, in: .localDomainMask).first!
     }
 }
