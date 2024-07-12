@@ -11,15 +11,15 @@ on:
     branches: [ "main" ]
 
 jobs:
-  builds-and-test:
+  build-and-test:
 
     runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
     
+    - name: Build and test for macOS
+      run: xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI_macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
-- name: Build and test for macOS  run: xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI_macOS"CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO 
-
-- name: Build and test for iOS 
-run: xcodebuild cleanbuild test -project EssentialFeed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY=""CODE_SIGNING_REQUIRED=NO
+    - name: Build and test for iOS
+      run: xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
