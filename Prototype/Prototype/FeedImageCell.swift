@@ -46,6 +46,7 @@ final class FeedImageCell: UITableViewCell {
 }
 
 private extension UIView {
+    
     private var shimmerAnimationKey: String {
         return "shimmer"
     }
