@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import XCTest
+import EssentialFeed
 
-func anyURL() -> URL {
-    return URL(string: "https://a-url.com")!
-}
-func anyNSError() -> NSError {
-    return NSError(domain: "any error", code: 0)
+var emptyCache: CachedFeed { CachedFeed(feed: [], timestamp: Date.now) }
+
+extension XCTestCase {
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
+    }
 }
