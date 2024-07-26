@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "176FDCA2-BA69-4F48-851D-8382524DB96D",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed.xcodeproj",
+        "identifier" : "31A510EA2C53D69300FF7C86",
+        "name" : "EssentialFeedTests"
+      }
+    }
+  ],
+  "version" : 1
+}
