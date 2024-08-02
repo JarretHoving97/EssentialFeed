@@ -9,15 +9,15 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3157D29C2C5CFC9E00F4F14F"
-               BuildableName = "CI.xctest"
-               BlueprintName = "CI"
+               BlueprintIdentifier = "31AEA7972C5D276000BF1C8D"
+               BuildableName = "CI_iOS.xctest"
+               BlueprintName = "CI_iOS"
                ReferencedContainer = "container:EssentialFeed.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,28 +30,10 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:EssentialFeed/CI.xctestplan"
+            reference = "container:EssentialFeed/CI_iOS.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3157D29C2C5CFC9E00F4F14F"
-               BuildableName = "CI.xctest"
-               BlueprintName = "CI"
-               ReferencedContainer = "container:EssentialFeed.xcodeproj">
-            </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "CI">
-               </Test>
-            </SkippedTests>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -70,15 +52,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3157D29C2C5CFC9E00F4F14F"
-            BuildableName = "CI.xctest"
-            BlueprintName = "CI"
-            ReferencedContainer = "container:EssentialFeed.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
