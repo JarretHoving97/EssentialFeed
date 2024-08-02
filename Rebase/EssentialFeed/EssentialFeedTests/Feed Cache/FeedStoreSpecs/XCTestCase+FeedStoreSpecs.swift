@@ -1,5 +1,8 @@
 //
-//  Copyright © Essential Developer. All rights reserved.
+//  XCTestCase+FeedStoreSpecs.swift
+//  EssentialFeedTests
+//
+//  Created by Jarret Hoving on 12/04/2024.
 //
 
 import XCTest
@@ -7,113 +10,66 @@ import EssentialFeed
 
 extension FeedStoreSpecs where Self: XCTestCase {
     
-
-	func assertThatRetrieveDeliversEmptyOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-        expect(sut, toRetrieve: .success(emptyCache), file: file, line: line)
-	}
-
-	func assertThatRetrieveHasNoSideEffectsOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-        expect(sut, toRetrieve: .success(emptyCache), file: file, line: line)
-        expect(sut, toRetrieve: .success(emptyCache), file: file, line: line)
-	}
-
-	func assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		let feed = uniqueImageFeed()
-		let timestamp = Date()
-
-		insert((feed, timestamp), to: sut)
-
-        expect(sut, toRetrieve: .success(CachedFeed(feed, timestamp)), file: file, line: line)
-	}
-
-	func assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		let feed = uniqueImageFeed()
-		let timestamp = Date()
-
-		insert((feed, timestamp), to: sut)
-
-        expect(sut, toRetrieveTwice: .success(CachedFeed(feed, timestamp)), file: file, line: line)
-	}
-
-	func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		let insertionError = insert((uniqueImageFeed(), Date()), to: sut)
-
-		XCTAssertNil(insertionError, "Expected to insert cache successfully", file: file, line: line)
-	}
-
-	func assertThatInsertDeliversNoErrorOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		insert((uniqueImageFeed(), Date()), to: sut)
-
-		let insertionError = insert((uniqueImageFeed(), Date()), to: sut)
-
-		XCTAssertNil(insertionError, "Expected to override cache successfully", file: file, line: line)
-	}
-
-	func assertThatInsertOverridesPreviouslyInsertedCacheValues(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		insert((uniqueImageFeed(), Date()), to: sut)
-
-		let latestFeed = [LocalFeedImage]()
-		let latestTimestamp = Date()
-		insert((latestFeed, latestTimestamp), to: sut)
-
-		expect(sut, toRetrieve: .success(CachedFeed(latestFeed, latestTimestamp)), file: file, line: line)
-	}
-
-	func assertThatDeleteDeliversNoErrorOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		let deletionError = deleteCache(from: sut)
-
-		XCTAssertNil(deletionError, "Expected empty cache deletion to succeed", file: file, line: line)
-	}
-
-	func assertThatDeleteHasNoSideEffectsOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		deleteCache(from: sut)
-
-        expect(sut, toRetrieve: .success(emptyCache), file: file, line: line)
-	}
-
-	func assertThatDeleteDeliversNoErrorOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		insert((uniqueImageFeed(), Date()), to: sut)
-
-		let deletionError = deleteCache(from: sut)
-
-		XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed", file: file, line: line)
-	}
-
-	func assertThatDeleteEmptiesPreviouslyInsertedCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		insert((uniqueImageFeed(), Date()), to: sut)
-
-		deleteCache(from: sut)
-
-        expect(sut, toRetrieve: .success(emptyCache), file: file, line: line)
-	}
-
-	func assertThatSideEffectsRunSerially(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-		let op1 = expectation(description: "Operation 1")
-		sut.insert(uniqueImageFeed(), timestamp: Date()) { _ in
-			op1.fulfill()
-		}
-
-		let op2 = expectation(description: "Operation 2")
+    func assertThatRetrieveDeliversEmptyOnEmptyCache(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {
+        expect(sut, toRetrieve: .success(.none), file: file, line: line)
+    }
+    
+    @discardableResult
+    func deleteCache(from sut: FeedStore) -> Error? {
+        let exp = expectation(description: "Wait for cache deletion")
+        var deletionError: Error?
         
-        sut.deletedCachedFeed { _ in
-            op2.fulfill()
+        sut.deletedCachedFeed { receivedDeletionError in
+            if case let Result.failure(error) = receivedDeletionError { deletionError = error }
+            exp.fulfill()
         }
+        wait(for: [exp], timeout: 1.0)
+        return deletionError
+    }
 
 
-		let op3 = expectation(description: "Operation 3")
-		sut.insert(uniqueImageFeed(), timestamp: Date()) { _ in
-			op3.fulfill()
-		}
-
-		let op4 = expectation(description: "Operation 4")
-		sut.retrieve { _ in
-			op4.fulfill()
-		}
-
-		wait(for: [op1, op2, op3, op4], timeout: 5.0, enforceOrder: true)
-	}
+    @discardableResult
+    func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore) -> Error? {
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        var insertionError: Error?
+        
+        sut.insert(cache.feed, timestamp: cache.timestamp) { receivedInsertionError in
+            if case let Result.failure(error) = receivedInsertionError { insertionError = error }
+            exp.fulfill()
+        }
     
-    // MARK: Helpers
+        wait(for: [exp], timeout: 1.0)
+        return insertionError
+    }
     
- 
+    func expect(_ sut: FeedStore, toRetrieveTwice expectedResult: FeedStore.RetrievalResult, file: StaticString = #file, line: UInt = #line) {
+        expect(sut, toRetrieve: expectedResult, file: file, line: line)
+        expect(sut, toRetrieve: expectedResult, file: file, line: line)
+    }
+    
+    func expect(_ sut: FeedStore, toRetrieve expectedResult: FeedStore.RetrievalResult, file: StaticString = #file, line: UInt = #line) {
+        
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        sut.retrieve { retrievedResult in
+            switch (expectedResult, retrievedResult) {
+            
+            case (.success(.none), .success(.none)),
+                 (.failure, .failure):
+                break;
+                
+            case let (.success(.some(expected)), .success(.some(retrieved))):
+                XCTAssertEqual(retrieved.feed, expected.feed, file: file, line: line)
+                XCTAssertEqual(retrieved.timestamp, expected.timestamp, file: file, line: line)
+                
+            default:
+                XCTFail("Extected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
 }

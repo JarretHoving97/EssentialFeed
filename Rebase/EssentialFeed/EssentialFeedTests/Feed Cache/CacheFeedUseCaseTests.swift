@@ -12,7 +12,6 @@ final class CacheFeedUseCaseTests: XCTestCase {
     
     func test_init_deosNotMessageStoreUponCreation() {
         let (_, store)  = makeSUT()
-    
         XCTAssertEqual(store.receivedMessages, [])
     }
     
