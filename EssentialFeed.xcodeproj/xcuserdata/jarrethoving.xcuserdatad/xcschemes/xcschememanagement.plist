@@ -4,17 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CI_iOS.xcscheme</key>
+		<key>CI_MacOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>CI_macOS.xcscheme_^#shared#^_</key>
+		<key>CI_iOS.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<true/>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>5</integer>
 		</dict>
 		<key>EssentialFeed.xcscheme_^#shared#^_</key>
 		<dict>
@@ -23,17 +21,25 @@
 		</dict>
 		<key>EssentialFeedAPIEndToEndTests.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
 		<key>EssentialFeedCacheIntegrationTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>2</integer>
+		</dict>
+		<key>EssentialFeedTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>EssentialFeediOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>EssentialFeediOSTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
@@ -41,32 +47,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>310D10792BFB6054006A4691</key>
+		<key>3157D29C2C5CFC9E00F4F14F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>310D10802BFB6054006A4691</key>
+		<key>31A510C92C53D4F100FF7C86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3124937D2B7BE0F8006B7FE6</key>
+		<key>31A510EA2C53D69300FF7C86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>314AA5572BDADF3700672EBA</key>
+		<key>31A5114A2C53DDE100FF7C86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31AE8DD82B77B459001E6913</key>
+		<key>31AEA7622C5D1FD200BF1C8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31AE8DFB2B77B496001E6913</key>
+		<key>31AEA7692C5D1FD200BF1C8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31AEA77D2C5D224600BF1C8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -2,10 +2,11 @@
 //  EssentialFeediOSTests.swift
 //  EssentialFeediOSTests
 //
-//  Created by Jarret Hoving on 12/07/2024.
+//  Created by Jarret Hoving on 02/08/2024.
 //
 
 import XCTest
+@testable import EssentialFeediOS
 
 final class EssentialFeediOSTests: XCTestCase {
 

@@ -14,7 +14,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     override func setUp() {
         super.setUp()
         setupEmptyStoreState()
-    }
+    }   
     
     override func tearDown() {
         super.tearDown()

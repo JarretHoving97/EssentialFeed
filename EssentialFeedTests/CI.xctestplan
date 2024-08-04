@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "48BE2CCE-C5C2-4CDD-8861-E5F311B50BEF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "CI"
+      ],
+      "target" : {
+        "containerPath" : "container:EssentialFeed.xcodeproj",
+        "identifier" : "3157D29C2C5CFC9E00F4F14F",
+        "name" : "CI"
+      }
+    }
+  ],
+  "version" : 1
+}
