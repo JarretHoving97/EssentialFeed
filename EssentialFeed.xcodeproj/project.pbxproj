@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310B8E392C5FACB400AF9D3E /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B8E382C5FACB400AF9D3E /* FeedViewControllerTests.swift */; };
 		3157D2A12C5CFC9E00F4F14F /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A510CA2C53D4F100FF7C86 /* EssentialFeed.framework */; platformFilters = (macos, ); };
 		31A510CD2C53D4F100FF7C86 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 31A510CC2C53D4F100FF7C86 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31A510DB2C53D53500FF7C86 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A510D52C53D53500FF7C86 /* CodableFeedStore.swift */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		310B8E382C5FACB400AF9D3E /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		3157D29D2C5CFC9E00F4F14F /* CI_MacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CI_MacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A510CA2C53D4F100FF7C86 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A510CC2C53D4F100FF7C86 /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
@@ -132,7 +134,6 @@
 		31AEA76A2C5D1FD200BF1C8D /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeediOSTests.swift; sourceTree = "<group>"; };
 		31AEA7782C5D203400BF1C8D /* EssentialFeediOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeediOS.xctestplan; sourceTree = "<group>"; };
-		31AEA7802C5D224600BF1C8D /* CI_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_iOS.swift; sourceTree = "<group>"; };
 		31AEA78B2C5D24B500BF1C8D /* CI_MacOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_MacOS.xctestplan; sourceTree = "<group>"; };
 		31AEA7932C5D26EA00BF1C8D /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
 		31AEA7982C5D276000BF1C8D /* CI_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CI_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +206,6 @@
 				31A5114C2C53DDE100FF7C86 /* EssentialFeedAPIEndToEndTests */,
 				31AEA7642C5D1FD200BF1C8D /* EssentialFeediOS */,
 				31AEA76E2C5D1FD200BF1C8D /* EssentialFeediOSTests */,
-				31AEA77F2C5D224600BF1C8D /* CI_iOS */,
 				31AEA7992C5D276000BF1C8D /* CI_iOS */,
 				31A510B52C53D4B700FF7C86 /* Products */,
 				31AEA78D2C5D258700BF1C8D /* Frameworks */,
@@ -368,16 +368,9 @@
 			isa = PBXGroup;
 			children = (
 				31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */,
+				310B8E382C5FACB400AF9D3E /* FeedViewControllerTests.swift */,
 			);
 			path = EssentialFeediOSTests;
-			sourceTree = "<group>";
-		};
-		31AEA77F2C5D224600BF1C8D /* CI_iOS */ = {
-			isa = PBXGroup;
-			children = (
-				31AEA7802C5D224600BF1C8D /* CI_iOS.swift */,
-			);
-			path = CI_iOS;
 			sourceTree = "<group>";
 		};
 		31AEA78D2C5D258700BF1C8D /* Frameworks */ = {
@@ -724,6 +717,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310B8E392C5FACB400AF9D3E /* FeedViewControllerTests.swift in Sources */,
 				31AEA7702C5D1FD200BF1C8D /* EssentialFeediOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,52 +2,30 @@
 //  FeedViewControllerTests.swift
 //  EssentialFeediOSTests
 //
-//  Created by Jarret Hoving on 14/07/2024.
+//  Created by Jarret Hoving on 04/08/2024.
 //
 
 import XCTest
-import UIKit
 
-final class FeedViewController: UIViewController {
+final class FeedViewController {
     
-    private var loader: FeedViewControllerTests.LoaderSpy?
-     
-   convenience init(loader: FeedViewControllerTests.LoaderSpy) {
-       self.init()
-       self.loader = loader
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loader?.load()
+    init(loader: FeedViewControllerTests.loaderSpy) {
+        
     }
 }
+
 final class FeedViewControllerTests: XCTestCase {
     
-    
     func test_init_doesNotLoadFeed() {
+        let loader = loaderSpy()
+        let _ = FeedViewController(loader: loader)
         
-        let loader = LoaderSpy()
-        
-        _ = FeedViewController(loader: loader)
-        
-        XCTAssertEqual(loader.loadCallCount, 0 )
+        XCTAssertEqual(loader.loadCallCount, 0)
     }
     
-    func test_viewDidLoad_loadsFeed() {
-        let loader = LoaderSpy()
-        let sut = FeedViewController(loader: loader)
-        
-        sut.loadViewIfNeeded()
-        
-        XCTAssertEqual(loader.loadCallCount, 1 )
-    }
     
-    class LoaderSpy {
+    class loaderSpy {
         private(set) var loadCallCount: Int = 0
-        
-        func load() {
-            loadCallCount += 1
-        }
     }
+
 }
