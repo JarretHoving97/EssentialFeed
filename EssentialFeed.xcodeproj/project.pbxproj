@@ -52,6 +52,8 @@
 		31AEA7712C5D1FD200BF1C8D /* EssentialFeediOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 31AEA7652C5D1FD200BF1C8D /* EssentialFeediOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31AEA79B2C5D276000BF1C8D /* CI_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEA79A2C5D276000BF1C8D /* CI_iOS.swift */; };
 		31AEA79C2C5D276000BF1C8D /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A510CA2C53D4F100FF7C86 /* EssentialFeed.framework */; platformFilter = ios; };
+		31F48DDE2C6243A300263163 /* FakeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F48DDD2C6243A300263163 /* FakeRefreshControl.swift */; };
+		31F48DE02C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F48DDF2C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,8 @@
 		31AEA7932C5D26EA00BF1C8D /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
 		31AEA7982C5D276000BF1C8D /* CI_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CI_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AEA79A2C5D276000BF1C8D /* CI_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_iOS.swift; sourceTree = "<group>"; };
+		31F48DDD2C6243A300263163 /* FakeRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRefreshControl.swift; sourceTree = "<group>"; };
+		31F48DDF2C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+iOS17RefreshControlExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +396,7 @@
 		31AEA76E2C5D1FD200BF1C8D /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				31F48DDC2C62437800263163 /* Helpers */,
 				31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */,
 				310B8E382C5FACB400AF9D3E /* FeedViewControllerTests.swift */,
 			);
@@ -411,6 +416,15 @@
 				31AEA79A2C5D276000BF1C8D /* CI_iOS.swift */,
 			);
 			path = CI_iOS;
+			sourceTree = "<group>";
+		};
+		31F48DDC2C62437800263163 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				31F48DDD2C6243A300263163 /* FakeRefreshControl.swift */,
+				31F48DDF2C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -745,7 +759,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				310B8E392C5FACB400AF9D3E /* FeedViewControllerTests.swift in Sources */,
+				31F48DE02C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift in Sources */,
 				310B8E3F2C5FB06E00AF9D3E /* XCTestCase+MemoryLeakTrackingHelper.swift in Sources */,
+				31F48DDE2C6243A300263163 /* FakeRefreshControl.swift in Sources */,
 				31AEA7702C5D1FD200BF1C8D /* EssentialFeediOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
