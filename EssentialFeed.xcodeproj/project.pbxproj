@@ -56,6 +56,7 @@
 		31B51AE12C663E4100304BC8 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE02C663E4100304BC8 /* FeedImageDataLoader.swift */; };
 		31B51AE32C6647A500304BC8 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE22C6647A500304BC8 /* FeedRefreshViewController.swift */; };
 		31B51AE52C664B9500304BC8 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE42C664B9500304BC8 /* FeedImageCellController.swift */; };
+		31B51AE82C664EE900304BC8 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE72C664EE900304BC8 /* FeedUIComposer.swift */; };
 		31F48DDE2C6243A300263163 /* FakeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F48DDD2C6243A300263163 /* FakeRefreshControl.swift */; };
 		31F48DE02C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F48DDF2C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift */; };
 /* End PBXBuildFile section */
@@ -172,6 +173,7 @@
 		31B51AE02C663E4100304BC8 /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
 		31B51AE22C6647A500304BC8 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		31B51AE42C664B9500304BC8 /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
+		31B51AE72C664EE900304BC8 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		31F48DDD2C6243A300263163 /* FakeRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRefreshControl.swift; sourceTree = "<group>"; };
 		31F48DDF2C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+iOS17RefreshControlExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -412,6 +414,7 @@
 		31B51ADB2C663D6D00304BC8 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
+				31B51AE62C664EDF00304BC8 /* Composers */,
 				31B51ADD2C663D7B00304BC8 /* Views */,
 				31B51ADC2C663D7700304BC8 /* Controllers */,
 			);
@@ -452,6 +455,14 @@
 				31B51AE02C663E4100304BC8 /* FeedImageDataLoader.swift */,
 			);
 			path = "Feed Image Loader";
+			sourceTree = "<group>";
+		};
+		31B51AE62C664EDF00304BC8 /* Composers */ = {
+			isa = PBXGroup;
+			children = (
+				31B51AE72C664EE900304BC8 /* FeedUIComposer.swift */,
+			);
+			path = Composers;
 			sourceTree = "<group>";
 		};
 		31F48DDC2C62437800263163 /* Helpers */ = {
@@ -792,6 +803,7 @@
 				3134BFD62C654DC10093D5C7 /* FeedViewController.swift in Sources */,
 				3134BFD82C6552AE0093D5C7 /* FeedImageCell.swift in Sources */,
 				31B51AE52C664B9500304BC8 /* FeedImageCellController.swift in Sources */,
+				31B51AE82C664EE900304BC8 /* FeedUIComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
