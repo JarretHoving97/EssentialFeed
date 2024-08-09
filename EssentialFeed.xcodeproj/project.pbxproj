@@ -50,10 +50,11 @@
 		31A5114F2C53DDE100FF7C86 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A510CA2C53D4F100FF7C86 /* EssentialFeed.framework */; };
 		31A511552C53DE3200FF7C86 /* XCTestCase+MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5110F2C53DBA300FF7C86 /* XCTestCase+MemoryLeakTrackingHelper.swift */; };
 		31AEA76B2C5D1FD200BF1C8D /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AEA7632C5D1FD200BF1C8D /* EssentialFeediOS.framework */; };
-		31AEA7702C5D1FD200BF1C8D /* EssentialFeediOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */; };
 		31AEA7712C5D1FD200BF1C8D /* EssentialFeediOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 31AEA7652C5D1FD200BF1C8D /* EssentialFeediOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31AEA79B2C5D276000BF1C8D /* CI_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEA79A2C5D276000BF1C8D /* CI_iOS.swift */; };
 		31AEA79C2C5D276000BF1C8D /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A510CA2C53D4F100FF7C86 /* EssentialFeed.framework */; platformFilter = ios; };
+		31B51AD82C661F1D00304BC8 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AD72C661F1D00304BC8 /* UIView+Shimmering.swift */; };
+		31B51ADA2C661FA100304BC8 /* EssentialFeediOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */; };
 		31F48DDE2C6243A300263163 /* FakeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F48DDD2C6243A300263163 /* FakeRefreshControl.swift */; };
 		31F48DE02C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F48DDF2C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift */; };
 /* End PBXBuildFile section */
@@ -168,6 +169,7 @@
 		31AEA7932C5D26EA00BF1C8D /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
 		31AEA7982C5D276000BF1C8D /* CI_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CI_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AEA79A2C5D276000BF1C8D /* CI_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_iOS.swift; sourceTree = "<group>"; };
+		31B51AD72C661F1D00304BC8 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		31F48DDD2C6243A300263163 /* FakeRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRefreshControl.swift; sourceTree = "<group>"; };
 		31F48DDF2C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+iOS17RefreshControlExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -395,6 +397,7 @@
 				31AEA7652C5D1FD200BF1C8D /* EssentialFeediOS.h */,
 				3134BFD52C654DC10093D5C7 /* FeedViewController.swift */,
 				3134BFD72C6552AE0093D5C7 /* FeedImageCell.swift */,
+				31B51AD72C661F1D00304BC8 /* UIView+Shimmering.swift */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -402,9 +405,9 @@
 		31AEA76E2C5D1FD200BF1C8D /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				31F48DDC2C62437800263163 /* Helpers */,
-				31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */,
 				310B8E382C5FACB400AF9D3E /* FeedViewControllerTests.swift */,
+				31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */,
+				31F48DDC2C62437800263163 /* Helpers */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B51AD82C661F1D00304BC8 /* UIView+Shimmering.swift in Sources */,
 				3134BFD62C654DC10093D5C7 /* FeedViewController.swift in Sources */,
 				3134BFD82C6552AE0093D5C7 /* FeedImageCell.swift in Sources */,
 			);
@@ -771,7 +775,7 @@
 				31F48DE02C62441400263163 /* UITableView+iOS17RefreshControlExtension.swift in Sources */,
 				310B8E3F2C5FB06E00AF9D3E /* XCTestCase+MemoryLeakTrackingHelper.swift in Sources */,
 				31F48DDE2C6243A300263163 /* FakeRefreshControl.swift in Sources */,
-				31AEA7702C5D1FD200BF1C8D /* EssentialFeediOSTests.swift in Sources */,
+				31B51ADA2C661FA100304BC8 /* EssentialFeediOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
