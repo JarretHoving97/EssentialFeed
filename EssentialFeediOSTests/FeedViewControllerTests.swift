@@ -372,6 +372,7 @@ private extension UIButton {
         }
     }
 }
+
 private extension FeedViewController {
     
     func simulateAppearance() {
