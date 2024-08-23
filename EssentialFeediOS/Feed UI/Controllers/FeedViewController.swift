@@ -10,7 +10,7 @@ import EssentialFeed
 
 final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
-    public var refreshController: FeedRefreshViewController?
+    public var refreshController: FeedRefreshViewController!
     public var feedLoader: FeedLoader?
     
     var tableModel = [FeedImageCellController]() {
@@ -24,12 +24,11 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
         self.refreshController = refreshController
     }
     
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         refreshControl = refreshController?.view
-        
-   
         tableView.prefetchDataSource = self
         
         onViewIsAppearing = { vc in
@@ -58,7 +57,6 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
-            
            cellController(forRowAt: indexPath).preload()
         }
     }
@@ -69,7 +67,6 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     
     private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
         return tableModel[indexPath.row]
-        
     }
     
     private func removeCellControllerLoad(forRowAt indexPath: IndexPath) {
