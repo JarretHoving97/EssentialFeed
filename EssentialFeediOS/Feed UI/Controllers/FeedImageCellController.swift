@@ -16,6 +16,7 @@ final class FeedImageCellController {
         self.viewModel = viewModel
     }
     
+    
     private func binded(_ cell: FeedImageCell) -> FeedImageCell {
         cell.locationContainer.isHidden = !viewModel.hasLocation
         cell.locationLabel.text = viewModel.location
@@ -34,6 +35,14 @@ final class FeedImageCellController {
             cell?.feedImageRetryButton.isHidden = !shouldRetry
         }
 
+        return cell
+    }
+    
+    func view() -> UITableViewCell {
+        
+        let cell = binded(FeedImageCell())
+            viewModel.loadImageData()
+        
         return cell
     }
 

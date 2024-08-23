@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import EssentialFeed
 
-final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
+public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
     public var refreshController: FeedRefreshViewController!
-    public var feedLoader: FeedLoader?
     
     var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
