@@ -125,6 +125,7 @@
                         <connections>
                             <outlet property="dataSource" destination="UPZ-KE-1tP" id="db9-YQ-m2l"/>
                             <outlet property="delegate" destination="UPZ-KE-1tP" id="ePM-5F-KTI"/>
+                            <outlet property="prefetchDataSource" destination="UPZ-KE-1tP" id="i3Z-hb-NNE"/>
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="1w0-xg-Igz">
