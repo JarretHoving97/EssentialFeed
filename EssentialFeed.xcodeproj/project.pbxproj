@@ -352,10 +352,10 @@
 			children = (
 				31A511152C53DBA300FF7C86 /* FeedStoreSpecs */,
 				31A511182C53DBA300FF7C86 /* Helpers */,
-				31A511192C53DBA300FF7C86 /* CacheFeedUseCaseTests.swift */,
 				31A5111A2C53DBA300FF7C86 /* CodableFeedStoreTests.swift */,
 				31A5111B2C53DBA300FF7C86 /* CoreDataFeedStoreTests.swift */,
 				31A5111C2C53DBA300FF7C86 /* FeedStoreSpecs.swift */,
+				31A511192C53DBA300FF7C86 /* CacheFeedUseCaseTests.swift */,
 				31A5111D2C53DBA300FF7C86 /* LoadFeedFromCacheUseCaseTests.swift */,
 				31A5111E2C53DBA300FF7C86 /* ValidateFeedCacheUseCaseTests.swift */,
 			);
