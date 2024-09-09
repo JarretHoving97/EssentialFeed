@@ -56,7 +56,6 @@
 		31B51AD82C661F1D00304BC8 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AD72C661F1D00304BC8 /* UIView+Shimmering.swift */; };
 		31B51ADA2C661FA100304BC8 /* EssentialFeediOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEA76F2C5D1FD200BF1C8D /* EssentialFeediOSTests.swift */; };
 		31B51AE12C663E4100304BC8 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE02C663E4100304BC8 /* FeedImageDataLoader.swift */; };
-		31B51AE32C6647A500304BC8 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE22C6647A500304BC8 /* FeedRefreshViewController.swift */; };
 		31B51AE52C664B9500304BC8 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE42C664B9500304BC8 /* FeedImageCellController.swift */; };
 		31B51AE82C664EE900304BC8 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B51AE72C664EE900304BC8 /* FeedUIComposer.swift */; };
 		31DF5B702C78BA3B00D91105 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF5B6F2C78BA3B00D91105 /* FeedImageViewModel.swift */; };
@@ -177,7 +176,6 @@
 		31AEA79A2C5D276000BF1C8D /* CI_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_iOS.swift; sourceTree = "<group>"; };
 		31B51AD72C661F1D00304BC8 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		31B51AE02C663E4100304BC8 /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
-		31B51AE22C6647A500304BC8 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		31B51AE42C664B9500304BC8 /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
 		31B51AE72C664EE900304BC8 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		31DF5B6F2C78BA3B00D91105 /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
@@ -435,7 +433,6 @@
 			isa = PBXGroup;
 			children = (
 				3134BFD52C654DC10093D5C7 /* FeedViewController.swift */,
-				31B51AE22C6647A500304BC8 /* FeedRefreshViewController.swift */,
 				31B51AE42C664B9500304BC8 /* FeedImageCellController.swift */,
 			);
 			path = Controllers;
@@ -829,7 +826,6 @@
 			files = (
 				31DF5B732C78CA8900D91105 /* FeedPresenter.swift in Sources */,
 				31B51AE12C663E4100304BC8 /* FeedImageDataLoader.swift in Sources */,
-				31B51AE32C6647A500304BC8 /* FeedRefreshViewController.swift in Sources */,
 				31B51AD82C661F1D00304BC8 /* UIView+Shimmering.swift in Sources */,
 				3134BFD62C654DC10093D5C7 /* FeedViewController.swift in Sources */,
 				31DF5B702C78BA3B00D91105 /* FeedImageViewModel.swift in Sources */,
