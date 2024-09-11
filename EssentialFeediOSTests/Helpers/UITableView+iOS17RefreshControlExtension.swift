@@ -6,10 +6,12 @@
 //
 
 import UIKit.UITableViewController
+import EssentialFeediOS
 
-extension UITableViewController {
+extension FeedViewController {
    
    func replaceRefreshControlWithFakeiOS17Support() {
+       
        let fake = FakeRefreshControl()
 
        refreshControl?.allTargets.forEach { target in
@@ -17,6 +19,7 @@ extension UITableViewController {
                fake.addTarget(target, action: Selector(action), for: .valueChanged)
            }
        }
+  
        refreshControl = fake
    }
 }
