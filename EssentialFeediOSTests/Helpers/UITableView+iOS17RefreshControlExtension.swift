@@ -21,6 +21,5 @@ extension FeedViewController {
        }
   
        refreshControl = fake
-       refreshController.view = refreshController.loadView()(fake)
    }
 }

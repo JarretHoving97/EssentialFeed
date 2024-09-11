@@ -81,6 +81,9 @@
                                                             <state key="normal" title="↻">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="retryButtonTapped" destination="Uqf-re-a1r" eventType="touchUpInside" id="0EP-uZ-cEp"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -120,6 +123,14 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="71p-hb-tlY" secondAttribute="trailing" id="sTf-X4-fy7"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="Gaz-bf-Yv7" id="gaf-8r-0uQ"/>
+                                    <outlet property="feedImageContainer" destination="kji-N0-l6Q" id="BOj-tK-vkk"/>
+                                    <outlet property="feedImageRetryButton" destination="qm3-Ij-kvx" id="i62-oR-td6"/>
+                                    <outlet property="feedImageView" destination="Dne-Ri-T3S" id="11A-eN-1Iv"/>
+                                    <outlet property="locationContainer" destination="4KX-HI-EyS" id="G8E-FU-6Jt"/>
+                                    <outlet property="locationLabel" destination="WoA-RG-gVD" id="E1d-9F-LeW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
