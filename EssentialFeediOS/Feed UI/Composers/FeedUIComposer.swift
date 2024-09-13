@@ -20,7 +20,7 @@ public final class FeedUIComposer {
         )
         
         presentationAdapter.presenter = FeedPresenter(
-            feedView: FeedViewAdapter(controller: feedController, imageLoader: imageLoader),
+            feedView: FeedViewAdapter(controller: feedController, imageLoader: MainTheadDispatchDecorator(decoratee: imageLoader)),
             loadingView: WeakRefVirtualProxy(feedController))
         
         return feedController
@@ -28,11 +28,11 @@ public final class FeedUIComposer {
 }
 
 private final class MainTheadDispatchDecorator<T> {
-    private let decoratee: FeedLoader
-    init(decoratee: FeedLoader) {
+    private let decoratee: T
+
+    init(decoratee: T) {
         self.decoratee = decoratee
     }
-    
     
     func dispatch(completion: @escaping () -> Void) {
         guard Thread.isMainThread else {
@@ -47,6 +47,15 @@ extension MainTheadDispatchDecorator: FeedLoader where T == FeedLoader {
     func load(completion: @escaping (FeedLoader.Result) -> Void) {
         dispatch { [weak self] in
             self?.decoratee.load(completion: completion)
+        }
+    }
+}
+
+extension MainTheadDispatchDecorator: FeedImageDataLoader where T == FeedImageDataLoader {
+    
+    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> any FeedImageDataLoaderTask {
+        return decoratee.loadImageData(from: url) { [weak self] result in
+            self?.dispatch { completion(result) }
         }
     }
 }
