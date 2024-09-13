@@ -436,8 +436,8 @@
 		31B51ADC2C663D7700304BC8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3134BFD52C654DC10093D5C7 /* FeedViewController.swift */,
 				31B51AE42C664B9500304BC8 /* FeedImageCellController.swift */,
+				3134BFD52C654DC10093D5C7 /* FeedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
