@@ -23,6 +23,8 @@ final class FeedImagePresenter<View: FeedImageView, Image> where View.Image == I
         self.imageTransformer = imageTransformer
     }
     
+
+    
     func didStartLoadingImageData(for model: FeedImage) {
         view.display(FeedImageViewModel(
             description: model.description,
@@ -84,6 +86,10 @@ final class FeedPresenter {
     init(feedView: FeedView, loadingView: FeedLoadingView) {
         self.feedView = feedView
         self.loadingView = loadingView
+    }
+    
+    static var title: String {
+        return "My Feed"
     }
     
     func didStartLoadingFeed() {
