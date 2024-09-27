@@ -278,9 +278,9 @@ final class FeedUIIntergrationTests: XCTestCase {
         sut.simulateAppearance()
         
         let exp = expectation(description: "Wait for completion")
+        
         DispatchQueue.global().async {
             loader.completeFeedLoading(at: 0)
-            
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
