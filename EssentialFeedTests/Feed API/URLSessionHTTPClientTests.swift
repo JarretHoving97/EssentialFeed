@@ -8,28 +8,6 @@
 import XCTest
 import EssentialFeed
 
-class URLSessionHTTPClient: HTTPClient {
-    private let session: URLSession
-    
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
-    
-    struct UnexpectedValuesRepresentation: Error {}
-    
-    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
-        session.dataTask(with: url) { data, response, error in
-            if let error {
-                completion(.failure(error))
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success((data, response)))
-            } else {
-                completion(.failure(UnexpectedValuesRepresentation()))
-            }
-        }.resume()
-    }
-}
-
 final class URLSessionHTTPClientTests: XCTestCase {
     
     override class func setUp() {
@@ -59,6 +37,27 @@ final class URLSessionHTTPClientTests: XCTestCase {
         
         wait(for: [exp], timeout: 1.0)
     }
+    
+    
+    func test_cancelGetFromURLTask_cancelsURLRequest() {
+        let url = anyURL()
+        let exp = expectation(description: "Wait for request")
+        
+        let task = makeSUT().get(from: url) { result in
+            switch result {
+            case let .failure(error as NSError) where error.code == URLError.cancelled.rawValue:
+                break
+            
+            default:
+                XCTFail("Expected cancelled result, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+        
+        task.cancel()
+        wait(for: [exp], timeout: 1.0)
+    }
+
     
     func test_getFromURL_failsOnRequestError() {
         let requestError = anyNSError()
