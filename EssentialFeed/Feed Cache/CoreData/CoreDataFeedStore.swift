@@ -6,7 +6,6 @@ import CoreData
 
 public final class CoreDataFeedStore: FeedStore {
 
-    
 	private let container: NSPersistentContainer
 	private let context: NSManagedObjectContext
 
