@@ -156,8 +156,8 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
                          line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
         let store = FeedStoreSpy()
         let sut = LocalFeedLoader(store: store, currentDate: currentDate)
-        checkForMemoryLeaks(store, file: file, line: line)
-        checkForMemoryLeaks(sut, file: file, line: line)
+        trackForMemoryLeaks(store, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, store)
     }
     
