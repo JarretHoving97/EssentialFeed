@@ -49,7 +49,7 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
     
     private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> FeedLoader.Result? {
         let loader = RemoteFeedLoader(url: feedTestServerURL, client: ephemeralClient())
-        checkForMemoryLeaks(loader, file: file, line: line)
+        trackForMemoryLeaks(loader, file: file, line: line)
         
         let exp = expectation(description: "Wait for load completion")
         
@@ -66,7 +66,7 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
     private func getFeedImageDataResult(file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoader.Result? {
             let loader = RemoteFeedImageDataLoader(client: ephemeralClient())
      
-            checkForMemoryLeaks(loader, file: file, line: line)
+        trackForMemoryLeaks(loader, file: file, line: line)
 
             let exp = expectation(description: "Wait for load completion")
             let url = feedTestServerURL.appendingPathComponent("73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6/image")
@@ -83,7 +83,7 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
     
     private func ephemeralClient(file: StaticString = #file, line: UInt = #line) -> HTTPClient {
         let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        checkForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(client, file: file, line: line)
         return client
     }
     

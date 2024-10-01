@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "E4F24032-3D10-467B-A2A4-93B7A38A3532",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed.xcodeproj",
+        "identifier" : "313463862CAC3EA4009D1697",
+        "name" : "EssentialFeedCacheIntegrationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
