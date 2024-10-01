@@ -100,10 +100,9 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
                     if case let Result.failure(error) = result {
                         XCTFail("Failed to insert \(data) with error \(error)", file: file, line: line)
                     }
-                    exp.fulfill()
                 }
+                exp.fulfill()
             }
-            exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
     }
