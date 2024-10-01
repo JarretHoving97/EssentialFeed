@@ -9,8 +9,8 @@ import XCTest
 import EssentialFeed
 
 
-final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
-    
+final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
+
     override func setUp() {
         super.setUp()
         setupEmptyStoreState()
@@ -164,6 +164,17 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
         expect(sut, toRetrieve: .success(.none))
     }
     
+    func test_insert_deliversNoErrorOnEmptyCache() {
+        let sut = makeSUT()
+        
+        assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on: sut)
+    }
+    
+    func test_delete_deliversNoErrorOnEmptyCache() {
+        let sut = makeSUT()
+        
+        assertThatInsertDeliversNoErrorOnEmptyCache(on: sut)
+    }
     
     func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
