@@ -1668,7 +1668,7 @@
 				3134637B2CAC3217009D1697 /* FeedStore 2.xcdatamodel */,
 				313463752CAC2C4B009D1697 /* FeedStore.xcdatamodel */,
 			);
-			currentVersion = 313463752CAC2C4B009D1697 /* FeedStore.xcdatamodel */;
+			currentVersion = 3134637B2CAC3217009D1697 /* FeedStore 2.xcdatamodel */;
 			name = FeedStore.xcdatamodeld;
 			path = "/Users/jarrethoving/xcode_projects/EssentialDeveloper/EssentialFeed/EssentialFeed/Feed Cache/CoreData/FeedStore.xcdatamodeld";
 			sourceTree = "<group>";
