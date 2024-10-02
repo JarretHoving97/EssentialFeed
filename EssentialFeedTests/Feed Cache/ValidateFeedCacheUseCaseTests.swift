@@ -19,7 +19,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
     func test_validateCache_hasNoSideEffectsOnRetrievalError() {
         let (sut, store) = makeSUT()
         
-        sut.validateCache()
+        sut.validateCache(completion: { _ in })
         
         store.completeRetrieval(with: anyNSError())
         
@@ -29,7 +29,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
     func test_validateCache_doesNotDeleteCacheOnEmptyCache() {
         let (sut, store) = makeSUT()
         
-        sut.validateCache()
+        sut.validateCache(completion: { _ in })
         
         store.completeWithEmptyCache()
         
@@ -43,7 +43,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         let nonExpiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge().adding(seconds: 1)
         let (sut, store)  = makeSUT(currentDate: { fixedCurrentDate })
 
-        sut.validateCache()
+        sut.validateCache(completion: { _ in })
         
         store.completeRetrieval(with: feed.local, timestamp: nonExpiredTimestamp)
         
@@ -59,7 +59,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         let expiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge().adding(seconds: -1)
         let (sut, store)  = makeSUT(currentDate: { fixedCurrentDate })
 
-        sut.validateCache()
+        sut.validateCache(completion: { _ in })
         
         store.completeRetrieval(with: feed.local, timestamp: expiredTimestamp)
         
@@ -73,7 +73,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         let expiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge()
         let (sut, store)  = makeSUT(currentDate: { fixedCurrentDate })
 
-        sut.validateCache()
+        sut.validateCache(completion: { _ in })
         
         store.completeRetrieval(with: feed.local, timestamp: expiredTimestamp)
         
@@ -107,7 +107,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         let store = FeedStoreSpy()
         var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
         
-        sut?.validateCache()
+        sut?.validateCache(completion: { _ in })
         sut = nil
         
         store.completeRetrieval(with: anyNSError())
