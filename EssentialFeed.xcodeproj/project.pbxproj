@@ -371,9 +371,9 @@
 		313463742CAC2C4B009D1697 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				313463712CAC2C4B009D1697 /* FeedStore.xcdatamodeld */,
 				3134636F2CAC2C4B009D1697 /* CoreDataFeedStore.swift */,
 				313463702CAC2C4B009D1697 /* CoreDataHelpers.swift */,
-				313463712CAC2C4B009D1697 /* FeedStore.xcdatamodeld */,
 				313463722CAC2C4B009D1697 /* ManagedCache.swift */,
 				313463732CAC2C4B009D1697 /* ManagedFeedImage.swift */,
 				3134637C2CAC33B2009D1697 /* CoreDataFeedStore+FeedImageDataLoader.swift */,
