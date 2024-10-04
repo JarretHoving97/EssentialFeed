@@ -1,0 +1,26 @@
+{
+  "configurations" : [
+    {
+      "id" : "042B9AC2-78DC-44C6-A13A-50017EEC25F0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "preferredScreenCaptureFormat" : "screenshot",
+    "testExecutionOrdering" : "random",
+    "uiTestingScreenshotsLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EssentialApp.xcodeproj",
+        "identifier" : "312282702CAEE0F500835F5E",
+        "name" : "EssentialAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}

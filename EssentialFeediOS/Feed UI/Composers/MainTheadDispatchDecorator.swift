@@ -26,8 +26,8 @@ final class MainTheadDispatchDecorator<T> {
 
 extension MainTheadDispatchDecorator: FeedLoader where T == FeedLoader {
     func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        dispatch { [weak self] in
-            self?.decoratee.load(completion: completion)
+        self.decoratee.load { [weak self]  result in
+            self?.dispatch { completion(result) }
         }
     }
 }
