@@ -7,36 +7,7 @@
 
 import XCTest
 import EssentialFeed
-
-class FeedImageDataLoaderWithCompoisite: FeedImageDataLoader {
-    
-    let primaryLoader: FeedImageDataLoader
-    let fallbackLoader: FeedImageDataLoader
-    
-    init(primaryLoader: FeedImageDataLoader, fallbackLoader: FeedImageDataLoader) {
-        self.primaryLoader = primaryLoader
-        self.fallbackLoader = fallbackLoader
-    }
-    
-    public class TaskWrapper: FeedImageDataLoaderTask {
-        func cancel() {}
-    }
-    
-    
-    @discardableResult
-    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> any FeedImageDataLoaderTask {
-        
-        primaryLoader.loadImageData(from: url) { [weak self] result in
-            switch result  {
-            case let .success(data):
-                completion(.success(data))
-                
-            case .failure:
-                let _ = self?.fallbackLoader.loadImageData(from: url, completion: completion)
-            }
-        }
-    }
-}
+import EssentialApp
 
 final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase {
     
@@ -65,11 +36,11 @@ final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase {
     
     // MARK: Helpers
     
-    private func expect(_ sut: FeedImageDataLoaderWithCompoisite, toCompleteWith expectedResult: FeedImageDataLoader.Result) {
+    private func expect(_ sut: FeedImageDataLoaderWithFallBackComposite, toCompleteWith expectedResult: FeedImageDataLoader.Result) {
         
         let exp = expectation(description: "Wait for load completion")
         
-        sut.loadImageData(from: URL(string: "http://any-url.com")!) { retrievedResult in
+        let _ = sut.loadImageData(from: URL(string: "http://any-url.com")!) { retrievedResult in
             
             switch (retrievedResult, expectedResult) {
             
@@ -89,11 +60,11 @@ final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase {
       wait(for: [exp])
     }
     
-    private func makeSUT(primaryResult: FeedImageDataLoader.Result, fallbackResult: FeedImageDataLoader.Result, file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoaderWithCompoisite {
+    private func makeSUT(primaryResult: FeedImageDataLoader.Result, fallbackResult: FeedImageDataLoader.Result, file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoaderWithFallBackComposite {
         
         let primaryLoader = LoaderStub(result: primaryResult)
         let fallbackLoader = LoaderStub(result: fallbackResult)
-        let sut = FeedImageDataLoaderWithCompoisite(primaryLoader: primaryLoader, fallbackLoader: fallbackLoader)
+        let sut = FeedImageDataLoaderWithFallBackComposite(primary: primaryLoader, fallback: fallbackLoader)
         trackForMemoryLeaks(primaryLoader)
         trackForMemoryLeaks(fallbackLoader)
         trackForMemoryLeaks(sut)
