@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		316404CE2CB2FF2300737952 /* FeeLoaderWithFallBackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316404CD2CB2FF2300737952 /* FeeLoaderWithFallBackComposite.swift */; };
+		316404CE2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316404CD2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift */; };
 		316404D82CB3002900737952 /* EssentialAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316404D72CB3002900737952 /* EssentialAppTests.swift */; };
+		316404DF2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316404DE2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift */; };
 		31AB81CA2CADD1C9005D1430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AB81C92CADD1C9005D1430 /* Assets.xcassets */; };
 		31AB81CE2CADD1C9005D1430 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AB81CD2CADD1C9005D1430 /* Preview Assets.xcassets */; };
 		31AB81D52CADD210005D1430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB81D42CADD210005D1430 /* AppDelegate.swift */; };
@@ -46,10 +47,11 @@
 
 /* Begin PBXFileReference section */
 		3122826B2CAEE0D400835F5E /* FeedLoaderWithFallBackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallBackCompositeTests.swift; sourceTree = "<group>"; };
-		316404CD2CB2FF2300737952 /* FeeLoaderWithFallBackComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeLoaderWithFallBackComposite.swift; sourceTree = "<group>"; };
+		316404CD2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallBackComposite.swift; sourceTree = "<group>"; };
 		316404D02CB2FFD200737952 /* EssentialApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialApp.xctestplan; sourceTree = "<group>"; };
 		316404D52CB3002900737952 /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		316404D72CB3002900737952 /* EssentialAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppTests.swift; sourceTree = "<group>"; };
+		316404DE2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallBackComposite.swift; sourceTree = "<group>"; };
 		31AB81C22CADD1C8005D1430 /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AB81C92CADD1C9005D1430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31AB81CB2CADD1C9005D1430 /* EssentialApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EssentialApp.entitlements; sourceTree = "<group>"; };
@@ -120,7 +122,8 @@
 		31AB81C42CADD1C8005D1430 /* EssentialApp */ = {
 			isa = PBXGroup;
 			children = (
-				316404CD2CB2FF2300737952 /* FeeLoaderWithFallBackComposite.swift */,
+				316404DE2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift */,
+				316404CD2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift */,
 				31AB81D62CADD26B005D1430 /* SceneDelegate.swift */,
 				31AB81D42CADD210005D1430 /* AppDelegate.swift */,
 				316404D02CB2FFD200737952 /* EssentialApp.xctestplan */,
@@ -259,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				316404CE2CB2FF2300737952 /* FeeLoaderWithFallBackComposite.swift in Sources */,
+				316404DF2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift in Sources */,
+				316404CE2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift in Sources */,
 				31AB81D52CADD210005D1430 /* AppDelegate.swift in Sources */,
 				31AB81D72CADD26B005D1430 /* SceneDelegate.swift in Sources */,
 			);

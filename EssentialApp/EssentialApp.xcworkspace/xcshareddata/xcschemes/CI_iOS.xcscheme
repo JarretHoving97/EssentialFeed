@@ -18,7 +18,7 @@
                BlueprintIdentifier = "31AEA7972C5D276000BF1C8D"
                BuildableName = "CI_iOS.xctest"
                BlueprintName = "CI_iOS"
-               ReferencedContainer = "container:EssentialFeed.xcodeproj">
+               ReferencedContainer = "container:../EssentialFeed.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
