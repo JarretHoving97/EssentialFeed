@@ -18,6 +18,7 @@
 		31AB81F72CADD461005D1430 /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F42CADD461005D1430 /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31AB81F82CADD461005D1430 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F52CADD461005D1430 /* EssentialFeediOS.framework */; };
 		31AB81F92CADD461005D1430 /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F52CADD461005D1430 /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		31E3FB832CB30AAB0005C32C /* FeedImageDataLoaderWithFallBackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E3FB822CB30AAB0005C32C /* FeedImageDataLoaderWithFallBackCompositeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		31AB81F42CADD461005D1430 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AB81F52CADD461005D1430 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AB81FB2CADD5B3005D1430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		31E3FB822CB30AAB0005C32C /* FeedImageDataLoaderWithFallBackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallBackCompositeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				3122826B2CAEE0D400835F5E /* FeedLoaderWithFallBackCompositeTests.swift */,
+				31E3FB822CB30AAB0005C32C /* FeedImageDataLoaderWithFallBackCompositeTests.swift */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
@@ -203,7 +206,6 @@
 				TargetAttributes = {
 					316404D42CB3002900737952 = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 31AB81C12CADD1C8005D1430;
 					};
 					31AB81C12CADD1C8005D1430 = {
 						CreatedOnToolsVersion = 15.4;
@@ -254,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E3FB832CB30AAB0005C32C /* FeedImageDataLoaderWithFallBackCompositeTests.swift in Sources */,
 				316404D82CB3002900737952 /* EssentialAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +286,6 @@
 		316404DC2CB3002A00737952 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K4BTMSB564;
@@ -300,14 +302,12 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialApp";
 			};
 			name = Debug;
 		};
 		316404DD2CB3002A00737952 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K4BTMSB564;
@@ -324,7 +324,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialApp";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
