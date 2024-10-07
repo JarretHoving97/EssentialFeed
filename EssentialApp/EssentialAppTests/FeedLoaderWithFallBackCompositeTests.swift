@@ -41,8 +41,8 @@ final class FeedLoaderWithFallBackCompositeTests: XCTestCase {
     
     private func makeSUT(primaryResult: FeedLoader.Result, fallbackResult: FeedLoader.Result, file: StaticString = #file, line: UInt = #line) -> FeedLoaderWithFallBackComposite {
 
-        let primaryLoader = LoaderStub(result: primaryResult)
-        let fallbackLoader = LoaderStub(result: fallbackResult)
+        let primaryLoader = FeedLoaderStub(result: primaryResult)
+        let fallbackLoader = FeedLoaderStub(result: fallbackResult)
         let sut = FeedLoaderWithFallBackComposite(primaryLoader: primaryLoader, fallBackLoader: fallbackLoader)
         
         trackForMemoryLeaks(primaryLoader, file: file, line: line)
@@ -76,10 +76,6 @@ final class FeedLoaderWithFallBackCompositeTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
-    
     private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
         
         addTeardownBlock { [weak instance] in
@@ -87,19 +83,4 @@ final class FeedLoaderWithFallBackCompositeTests: XCTestCase {
         }
     }
     
-    private func uniqueFeed() -> [FeedImage] {
-        return [FeedImage(id: UUID(), description: "any", location: "any", url: URL(string: "http://any_url.com")!)]
-    }
-    
-    private class LoaderStub: FeedLoader {
-        let result: FeedLoader.Result
-        
-        init(result: FeedLoader.Result) {
-            self.result = result
-        }
-        
-        func load(completion: @escaping (FeedLoader.Result) -> Void) {
-            completion(result)
-        }
-    }
 }

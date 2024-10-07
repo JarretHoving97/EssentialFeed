@@ -73,15 +73,6 @@ final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase {
         
     }
     
-    private func anyData() -> Data {
-        return "Any-data".data(using: .utf8)!
-    }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
-    
-    
     class TaskWrapper: FeedImageDataLoaderTask {
         func cancel() {}
     }
