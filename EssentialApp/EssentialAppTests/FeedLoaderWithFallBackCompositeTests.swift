@@ -10,7 +10,7 @@ import EssentialFeed
 import EssentialApp
 
 
-final class FeedLoaderWithFallBackCompositeTests: XCTestCase {
+final class FeedLoaderWithFallBackCompositeTests: XCTestCase, FeedLoaderTestCase {
 
     func test_load_deliversPrimaryFeedOnPrimaryLoaderSuccess() {
         let primaryFeed = uniqueFeed()
@@ -51,36 +51,4 @@ final class FeedLoaderWithFallBackCompositeTests: XCTestCase {
         
         return sut
     }
-    
-    private func expect(_ sut: FeedLoaderWithFallBackComposite, toCompleteWith expectedResult: FeedLoader.Result, file: StaticString = #filePath, line: UInt = #line) {
-        
-        let exp = expectation(description: "Wait for load completion")
-        
-        sut.load { receivedResult in
-            switch (receivedResult, expectedResult) {
-                
-            case let (.success(receivedFeed), .success(expectedFeed)):
-                
-                XCTAssertEqual(receivedFeed, expectedFeed)
-                
-            case (.failure, .failure):
-                break
-
-            default:
-                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-            exp.fulfill()
-        }
-        
-        
-        wait(for: [exp], timeout: 1.0)
-    }
-    
-    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential Memory Leak.", file: file, line: line)
-        }
-    }
-    
 }
