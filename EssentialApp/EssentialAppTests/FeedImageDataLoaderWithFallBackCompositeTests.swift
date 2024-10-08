@@ -9,7 +9,7 @@ import XCTest
 import EssentialFeed
 import EssentialApp
 
-final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase {
+final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase, FeedImageDataLoaderTestCase {
     
     func test_load_deliversPrimaryImageDataOnPrimaryLoaderSuccess() {
 
@@ -36,29 +36,7 @@ final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase {
     
     // MARK: Helpers
     
-    private func expect(_ sut: FeedImageDataLoaderWithFallBackComposite, toCompleteWith expectedResult: FeedImageDataLoader.Result) {
-        
-        let exp = expectation(description: "Wait for load completion")
-        
-        let _ = sut.loadImageData(from: URL(string: "http://any-url.com")!) { retrievedResult in
-            
-            switch (retrievedResult, expectedResult) {
-            
-            case let (.success(receivedData), .success(expectedData)):
-                XCTAssertEqual(receivedData, expectedData)
-                
-            case (.failure, .failure):
-                break
-                
-            default:
-                XCTFail("Expected \(expectedResult), got \(retrievedResult) instead")
-            }
 
-            exp.fulfill()
-        }
-        
-      wait(for: [exp])
-    }
     
     private func makeSUT(primaryResult: FeedImageDataLoader.Result, fallbackResult: FeedImageDataLoader.Result, file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoaderWithFallBackComposite {
         

@@ -29,27 +29,12 @@ class ImageDataLoaderCacheDecorator: FeedImageDataLoader {
 }
 
 
-final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
+final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoaderTestCase {
     
     func test_load_deliversDataOnLoaderSuccess() {
     
         let sut = ImageDataLoaderCacheDecorator(result: .success(anyData()))
         
-        let exp = expectation(description: "Waiting loading to be finished")
-        
-        sut.loadImageData(from: URL(string: "http://any-yrl.com")!) { result in
-            
-            switch result {
-            case let .success(data):
-                XCTAssertEqual(data, anyData())
-                
-            default:
-                XCTFail("Expected to deliver success")
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        expect(sut, toCompleteWith: .success(anyData()))
     }
 }
