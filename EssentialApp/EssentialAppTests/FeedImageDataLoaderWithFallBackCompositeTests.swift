@@ -22,7 +22,6 @@ final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase, FeedImage
     func test_load_deliversFallbackImageDataOnPrimaryFailure() {
         let expectedData = "Any-data".data(using: .utf8)!
 
-    
         let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(expectedData))
         
         expect(sut, toCompleteWith: .success(expectedData))

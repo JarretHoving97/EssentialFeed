@@ -41,8 +41,6 @@ final class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
         sut.load { _ in }
         
         XCTAssertTrue(cache.messages.isEmpty, "Expected not to cache feed on load error")
-        
-        
     }
     
     // MARK: - Helpers

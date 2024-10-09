@@ -29,18 +29,24 @@ class ImageDataLoaderCacheDecorator: FeedImageDataLoader {
         func cancel() {}
     }
     
-    @discardableResult
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> any EssentialFeed.FeedImageDataLoaderTask {
         
         loader.loadImageData(from: url) { [weak self] result in
-            if let result = try? result.get() {
-                (self?.cache.save(result, for: url, completion: { _ in }))!
-            }
-            
-            completion(result)
+            completion(result.map { imageData in
+                self?.cache.saveIgnoringResult(imageData, url: url)
+                return imageData
+                }
+            )
         }
     }
 }
+
+private extension FeedImageDataCache {
+    func saveIgnoringResult(_ imageData: Data, url: URL) {
+        save(imageData, for: url) { _ in }
+    }
+}
+
 
 
 final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoaderTestCase {
@@ -61,9 +67,20 @@ final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoa
         
         let sut = makeSUT(loaderResult: .success(anyData()), cache: cache)
     
-        expect(sut, toCompleteWith: .success(anyData()))
+        let _ = sut.loadImageData(from: anyURL()) { _ in }
         
         XCTAssertEqual(cache.messages, [.save(anyData())])
+    }
+    
+    func test_load_doesNotCacheOnLoaderFailure() {
+        let cache = CacheSpy()
+        
+        let sut = makeSUT(loaderResult: .failure(anyNSError()), cache: cache)
+    
+        let _ = sut.loadImageData(from: anyURL()) { _ in }
+    
+        
+        XCTAssertEqual(cache.messages, [])
     }
     
 
@@ -91,5 +108,9 @@ final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoa
         func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
             messages.append(.save(data))
         }
+    }
+    
+    private func anyURL() -> URL {
+        return URL(string: "http://url.com")!
     }
 }

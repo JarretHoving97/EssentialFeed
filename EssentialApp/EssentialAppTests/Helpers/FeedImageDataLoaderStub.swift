@@ -19,7 +19,6 @@ public class FeedImageDataLoaderStub: FeedImageDataLoader {
         self.result = result
     }
     
-    @discardableResult
     public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> any EssentialFeed.FeedImageDataLoaderTask {
         completion(result)
     
