@@ -5,9 +5,7 @@
 //  Created by Jarret Hoving on 08/10/2024.
 //
 
-import Foundation
 import EssentialFeed
-import EssentialApp
 import XCTest
 
 
@@ -38,6 +36,8 @@ extension FeedImageDataLoaderTestCase {
         
       wait(for: [exp])
     }
+    
+    
 }
 
 

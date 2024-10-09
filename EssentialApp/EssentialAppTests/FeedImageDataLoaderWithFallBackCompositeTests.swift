@@ -36,12 +36,10 @@ final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase, FeedImage
     
     // MARK: Helpers
     
-
-    
     private func makeSUT(primaryResult: FeedImageDataLoader.Result, fallbackResult: FeedImageDataLoader.Result, file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoaderWithFallBackComposite {
         
-        let primaryLoader = LoaderStub(result: primaryResult)
-        let fallbackLoader = LoaderStub(result: fallbackResult)
+        let primaryLoader = FeedImageDataLoaderStub(result: primaryResult)
+        let fallbackLoader = FeedImageDataLoaderStub(result: fallbackResult)
         let sut = FeedImageDataLoaderWithFallBackComposite(primary: primaryLoader, fallback: fallbackLoader)
         trackForMemoryLeaks(primaryLoader)
         trackForMemoryLeaks(fallbackLoader)
@@ -49,25 +47,5 @@ final class FeedImageDataLoaderWithFallBackCompositeTests: XCTestCase, FeedImage
         
         return sut
         
-    }
-    
-    class TaskWrapper: FeedImageDataLoaderTask {
-        func cancel() {}
-    }
-    
-    private class LoaderStub: FeedImageDataLoader {
-        let result: FeedImageDataLoader.Result
-        
-        
-        init(result: FeedImageDataLoader.Result) {
-            self.result = result
-        }
-        
-        @discardableResult
-        func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> any EssentialFeed.FeedImageDataLoaderTask {
-            completion(result)
-            
-            return TaskWrapper()
-        }
     }
 }
