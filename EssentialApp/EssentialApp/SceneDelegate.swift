@@ -20,38 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Create the window using the windowScene
         let window = UIWindow(windowScene: scene)
-        
-        let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
-        
-        let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        let remoteFeedLoader = RemoteFeedLoader(url: url, client: remoteClient)
-        let remoteImageLoader = RemoteFeedImageDataLoader(client: remoteClient)
-        
-        let localStoreURL = NSPersistentContainer
-            .defaultDirectoryURL()
-            .appendingPathExtension("feed-store.sqlite")
-        
-        let localStore = try! CoreDataFeedStore(storeURL: localStoreURL)
-        let localFeedLoader = LocalFeedLoader(store: localStore, currentDate: Date.init)
-        let localImageLoader = LocalFeedImageDataLoader(store: localStore)
-        
-        window.rootViewController = FeedUIComposer.feedComposedWith(
-            feedLoader: FeedLoaderWithFallBackComposite(
-                primaryLoader: FeedLoaderCacheDecorator(
-                    decoratee: remoteFeedLoader,
-                    cache: localFeedLoader
-                ),
-                fallBackLoader: localFeedLoader
-            ),
-            imageLoader: FeedImageDataLoaderWithFallBackComposite(
-                primary: localImageLoader,
-                fallback: FeedImageDataLoaderCacheDecorator(
-                    loader: remoteImageLoader,
-                    cache: localImageLoader
-                )
-            )
-        )
-        
+
         self.window = window
         self.window?.makeKeyAndVisible()
     }
