@@ -23,13 +23,62 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
         
-        let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        let remoteClient = makeRemoteClient()
         let remoteFeedLoader = RemoteFeedLoader(url: url, client: remoteClient)
         let remoteImageLoader = RemoteFeedImageDataLoader(client: remoteClient)
         
-        window.rootViewController = FeedUIComposer.feedComposedWith(feedLoader: remoteFeedLoader, imageLoader: remoteImageLoader)
+        let localStoreURL = NSPersistentContainer
+            .defaultDirectoryURL()
+            .appendingPathExtension("feed-store.sqlite")
 
+        
+        let localStore = try! CoreDataFeedStore(storeURL: localStoreURL)
+        let localFeedLoader = LocalFeedLoader(store: localStore, currentDate: Date.init)
+        let localImageLoader = LocalFeedImageDataLoader(store: localStore)
+        
+        window.rootViewController = FeedUIComposer.feedComposedWith(
+            feedLoader: FeedLoaderWithFallBackComposite(
+                primaryLoader: FeedLoaderCacheDecorator(
+                    decoratee: remoteFeedLoader,
+                    cache: localFeedLoader
+                ),
+                fallBackLoader: localFeedLoader
+            ),
+            imageLoader: FeedImageDataLoaderWithFallBackComposite(
+                primary: localImageLoader,
+                fallback: FeedImageDataLoaderCacheDecorator(
+                    loader: remoteImageLoader,
+                    cache: localImageLoader
+                )
+            )
+        )
         self.window = window
         self.window?.makeKeyAndVisible()
     }
+    
+    
+    private func makeRemoteClient() -> HTTPClient {
+        switch UserDefaults.standard.string(forKey: "connectivity") {
+        case "offline":
+            return AlwaysFailingHTTPClient()
+            
+        default:
+            return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        }
+    }
+}
+
+private class AlwaysFailingHTTPClient: HTTPClient {
+    
+    private class Task: HTTPClientTask {
+        func cancel() {}
+    }
+    
+    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> any EssentialFeed.HTTPClientTask {
+        completion(.failure(NSError(domain: "offline", code: 0)))
+        
+        return Task()
+    }
+    
+    
 }
