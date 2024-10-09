@@ -40,4 +40,13 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
         XCTAssertEqual(feedCells.count, 22)
         XCTAssertTrue(firstImage.exists)
     }
+    
+    func test_onLaunch_displaysEmptyFeedWhenCustomerHasNoConnectivityAndNoCache() {
+        let offlineApp = XCUIApplication()
+        offlineApp.launchArguments = ["-reset", "-connectivity", "offline"]
+        offlineApp.launch()
+        
+        let feedCells = offlineApp.cells.matching(identifier: "feed-image-cell")
+        XCTAssertEqual(feedCells.count, 0)
+    }
 }
