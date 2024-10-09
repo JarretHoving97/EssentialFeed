@@ -12,7 +12,6 @@
 		317722082CB666020055ABB7 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317722042CB6616D0055ABB7 /* FeedImageDataLoaderCacheDecorator.swift */; };
 		318395462CB46A530097014D /* FeedLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318395452CB46A530097014D /* FeedLoaderCacheDecorator.swift */; };
 		3196B6112CB712C3003A29B0 /* EssentialAppUIAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3196B6102CB712C3003A29B0 /* EssentialAppUIAcceptanceTests.swift */; };
-		3196B6132CB712C3003A29B0 /* EssentialAppUIAcceptanceTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3196B6122CB712C3003A29B0 /* EssentialAppUIAcceptanceTestsLaunchTests.swift */; };
 		319FFD142CB425D700AC29EB /* FeedLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FFD132CB425D700AC29EB /* FeedLoaderCacheDecoratorTests.swift */; };
 		319FFD172CB42A2700AC29EB /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FFD162CB42A2700AC29EB /* FeedLoaderStub.swift */; };
 		319FFD192CB42BFF00AC29EB /* XCTestCase+MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FFD182CB42BFF00AC29EB /* XCTestCase+MemoryLeakTrackingHelper.swift */; };
@@ -73,7 +72,6 @@
 		318395452CB46A530097014D /* FeedLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		3196B60E2CB712C3003A29B0 /* EssentialAppUIAcceptanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppUIAcceptanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3196B6102CB712C3003A29B0 /* EssentialAppUIAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppUIAcceptanceTests.swift; sourceTree = "<group>"; };
-		3196B6122CB712C3003A29B0 /* EssentialAppUIAcceptanceTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppUIAcceptanceTestsLaunchTests.swift; sourceTree = "<group>"; };
 		319FFD132CB425D700AC29EB /* FeedLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
 		319FFD162CB42A2700AC29EB /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
 		319FFD182CB42BFF00AC29EB /* XCTestCase+MemoryLeakTrackingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTrackingHelper.swift"; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				3196B6102CB712C3003A29B0 /* EssentialAppUIAcceptanceTests.swift */,
-				3196B6122CB712C3003A29B0 /* EssentialAppUIAcceptanceTestsLaunchTests.swift */,
 			);
 			path = EssentialAppUIAcceptanceTests;
 			sourceTree = "<group>";
@@ -178,13 +175,13 @@
 		31AB81C42CADD1C8005D1430 /* EssentialApp */ = {
 			isa = PBXGroup;
 			children = (
+				316404D02CB2FFD200737952 /* EssentialApp.xctestplan */,
 				317722042CB6616D0055ABB7 /* FeedImageDataLoaderCacheDecorator.swift */,
 				318395452CB46A530097014D /* FeedLoaderCacheDecorator.swift */,
 				316404DE2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift */,
 				316404CD2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift */,
 				31AB81D62CADD26B005D1430 /* SceneDelegate.swift */,
 				31AB81D42CADD210005D1430 /* AppDelegate.swift */,
-				316404D02CB2FFD200737952 /* EssentialApp.xctestplan */,
 				31AB81FB2CADD5B3005D1430 /* Info.plist */,
 				31AB81C92CADD1C9005D1430 /* Assets.xcassets */,
 				31AB81CB2CADD1C9005D1430 /* EssentialApp.entitlements */,
@@ -342,7 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3196B6132CB712C3003A29B0 /* EssentialAppUIAcceptanceTestsLaunchTests.swift in Sources */,
 				3196B6112CB712C3003A29B0 /* EssentialAppUIAcceptanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

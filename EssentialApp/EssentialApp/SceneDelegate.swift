@@ -20,6 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Create the window using the windowScene
         let window = UIWindow(windowScene: scene)
+        
+        let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
+        
+        let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        let remoteFeedLoader = RemoteFeedLoader(url: url, client: remoteClient)
+        let remoteImageLoader = RemoteFeedImageDataLoader(client: remoteClient)
+        
+        window.rootViewController = FeedUIComposer.feedComposedWith(feedLoader: remoteFeedLoader, imageLoader: remoteImageLoader)
 
         self.window = window
         self.window?.makeKeyAndVisible()
