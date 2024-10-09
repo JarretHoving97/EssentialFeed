@@ -25,6 +25,7 @@ public class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
     public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> any EssentialFeed.FeedImageDataLoaderTask {
         
         loader.loadImageData(from: url) { [weak self] result in
+            
             completion(result.map { imageData in
                 self?.cache.saveIgnoringResult(imageData, url: url)
                 return imageData
