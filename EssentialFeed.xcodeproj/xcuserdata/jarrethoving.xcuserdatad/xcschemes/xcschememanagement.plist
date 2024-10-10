@@ -13,13 +13,15 @@
 		</dict>
 		<key>CI_iOS.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
 		<key>EssentialFeed.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -47,7 +49,7 @@
 		<key>EssentialFeediOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
@@ -92,6 +94,11 @@
 			<true/>
 		</dict>
 		<key>31AEA77D2C5D224600BF1C8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31AEA7972C5D276000BF1C8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
