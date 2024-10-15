@@ -47,6 +47,7 @@ final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoa
     func makeSUT(loaderResult: FeedImageDataLoader.Result, cache: CacheSpy = .init()) -> FeedImageDataLoader {
         
         let loader = FeedImageDataLoaderStub(result: loaderResult)
+        
         let sut = FeedImageDataLoaderCacheDecorator(loader: loader, cache: cache)
         trackForMemoryLeaks(loader)
         trackForMemoryLeaks(sut)
