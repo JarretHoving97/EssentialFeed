@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,19 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="rq2-MY-oHT">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="tF8-cv-pKX" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QN-wq-HZx">
+                                    <rect key="frame" x="8" y="8" width="377" height="18"/>
+                                    <viewLayoutGuide key="safeArea" id="MDl-7i-7Sw"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.99951404330000004" green="0.41759261489999999" blue="0.4154433012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="8QN-wq-HZx" secondAttribute="bottom" constant="8" id="17h-JO-gyY"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="8QN-wq-HZx" secondAttribute="trailing" id="IfT-gh-h2c"/>
+                                <constraint firstItem="8QN-wq-HZx" firstAttribute="leading" secondItem="tF8-cv-pKX" secondAttribute="leadingMargin" id="LPJ-zz-NXy"/>
+                                <constraint firstItem="8QN-wq-HZx" firstAttribute="top" secondItem="tF8-cv-pKX" secondAttribute="top" constant="8" id="UmC-Am-Zoh"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="8QN-wq-HZx" id="r5X-7i-t2h"/>
+                                <outletCollection property="gestureRecognizers" destination="Q51-fd-hNl" appends="YES" id="81M-Gm-vy5"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Exf-EO-XRe">
-                            <rect key="frame" x="0.0" y="663" width="393" height="16"/>
+                            <rect key="frame" x="0.0" y="681" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="569" id="Uqf-re-a1r" customClass="FeedImageCell" customModule="EssentialFeediOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66" width="393" height="569"/>
+                                <rect key="frame" x="0.0" y="84" width="393" height="569"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uqf-re-a1r" id="RPz-lv-kLJ">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="569"/>
@@ -151,8 +172,16 @@
                             <action selector="refresh" destination="UPZ-KE-1tP" eventType="valueChanged" id="Tup-gx-pDU"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="errorView" destination="tF8-cv-pKX" id="mSP-Df-Iq9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vB-HU-TzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Q51-fd-hNl">
+                    <connections>
+                        <action selector="hideMessageAnimated" destination="tF8-cv-pKX" id="nCB-2s-tZK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="753.43511450381675" y="-30.281690140845072"/>
         </scene>

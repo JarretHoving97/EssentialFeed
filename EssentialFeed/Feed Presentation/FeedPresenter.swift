@@ -42,7 +42,7 @@ public final class FeedPresenter {
             comment: "Error message displayed when we can't load the image feed from the server")
     }
     
-    public init(loadingView: FeedLoadingView, errorView: FeedErrorView = ErrorView(), feedView: FeedView) {
+    public init(loadingView: FeedLoadingView, errorView: FeedErrorView, feedView: FeedView) {
         self.loadingView = loadingView
         self.errorView = errorView
         self.feedView = feedView
@@ -64,8 +64,3 @@ public final class FeedPresenter {
     }
 }
 
-
-public class ErrorView: FeedErrorView {
-    public func display(_ viewModel: FeedErrorViewModel) { }
-    public init() {}
-}
