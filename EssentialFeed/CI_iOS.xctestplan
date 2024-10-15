@@ -14,34 +14,6 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "31A5114A2C53DDE100FF7C86",
-        "name" : "EssentialFeedAPIEndToEndTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "31AEA7692C5D1FD200BF1C8D",
-        "name" : "EssentialFeediOSTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "313463862CAC3EA4009D1697",
-        "name" : "EssentialFeedCacheIntegrationTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "31A510EA2C53D69300FF7C86",
-        "name" : "EssentialFeedTests"
-      }
-    },
-    {
-      "target" : {
         "containerPath" : "container:EssentialApp.xcodeproj",
         "identifier" : "31E3FB872CB316200005C32C",
         "name" : "EssentialAppTests"
@@ -52,6 +24,34 @@
         "containerPath" : "container:EssentialApp.xcodeproj",
         "identifier" : "3196B60D2CB712C3003A29B0",
         "name" : "EssentialAppUIAcceptanceTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/EssentialFeed.xcodeproj",
+        "identifier" : "31A5114A2C53DDE100FF7C86",
+        "name" : "EssentialFeedAPIEndToEndTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/EssentialFeed.xcodeproj",
+        "identifier" : "313463862CAC3EA4009D1697",
+        "name" : "EssentialFeedCacheIntegrationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/EssentialFeed.xcodeproj",
+        "identifier" : "31A510EA2C53D69300FF7C86",
+        "name" : "EssentialFeedTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/EssentialFeed.xcodeproj",
+        "identifier" : "31AEA7692C5D1FD200BF1C8D",
+        "name" : "EssentialFeediOSTests"
       }
     }
   ],

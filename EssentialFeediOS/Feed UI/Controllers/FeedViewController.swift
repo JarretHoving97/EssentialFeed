@@ -81,4 +81,8 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
    public func display(_ viewModel: FeedLoadingViewModel) {
         viewModel.isLoading ? refreshControl?.beginRefreshing() : refreshControl?.endRefreshing()
     }
+    
+    public func display(_ cellControllers: [FeedImageCellController]) {
+        tableModel = cellControllers
+    }
 }
