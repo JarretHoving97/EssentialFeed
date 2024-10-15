@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		313AF26A2CBE67C400A71B02 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317722042CB6616D0055ABB7 /* FeedImageDataLoaderCacheDecorator.swift */; };
+		313AF2742CBEA21900A71B02 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313AF2732CBEA21900A71B02 /* Launch Screen.storyboard */; };
 		316404CE2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316404CD2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift */; };
 		316404DF2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316404DE2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift */; };
 		317722082CB666020055ABB7 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317722042CB6616D0055ABB7 /* FeedImageDataLoaderCacheDecorator.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		310B579E2CBC49D200305021 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CI_iOS.xctestplan; path = ../../EssentialFeed/CI_iOS.xctestplan; sourceTree = "<group>"; };
 		3122826B2CAEE0D400835F5E /* FeedLoaderWithFallBackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallBackCompositeTests.swift; sourceTree = "<group>"; };
+		313AF2732CBEA21900A71B02 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		316404CD2CB2FF2300737952 /* FeedLoaderWithFallBackComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallBackComposite.swift; sourceTree = "<group>"; };
 		316404D02CB2FFD200737952 /* EssentialApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialApp.xctestplan; sourceTree = "<group>"; };
 		316404DE2CB3011100737952 /* FeedImageDataLoaderWithFallBackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallBackComposite.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				31AB81C92CADD1C9005D1430 /* Assets.xcassets */,
 				31AB81CB2CADD1C9005D1430 /* EssentialApp.entitlements */,
 				31AB81CC2CADD1C9005D1430 /* Preview Content */,
+				313AF2732CBEA21900A71B02 /* Launch Screen.storyboard */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				313AF2742CBEA21900A71B02 /* Launch Screen.storyboard in Resources */,
 				31AB81CE2CADD1C9005D1430 /* Preview Assets.xcassets in Resources */,
 				31AB81CA2CADD1C9005D1430 /* Assets.xcassets in Resources */,
 			);
@@ -578,6 +582,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -619,6 +624,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
