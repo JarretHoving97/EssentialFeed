@@ -20,14 +20,12 @@
 		319FFD172CB42A2700AC29EB /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FFD162CB42A2700AC29EB /* FeedLoaderStub.swift */; };
 		319FFD192CB42BFF00AC29EB /* XCTestCase+MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FFD182CB42BFF00AC29EB /* XCTestCase+MemoryLeakTrackingHelper.swift */; };
 		319FFD1B2CB42C5A00AC29EB /* XCTestCase+FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FFD1A2CB42C5A00AC29EB /* XCTestCase+FeedLoader.swift */; };
+		31A49E5D2CBEB11A00DE756E /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F42CADD461005D1430 /* EssentialFeed.framework */; };
+		31A49E602CBEB11B00DE756E /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F52CADD461005D1430 /* EssentialFeediOS.framework */; };
 		31AB81CA2CADD1C9005D1430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AB81C92CADD1C9005D1430 /* Assets.xcassets */; };
 		31AB81CE2CADD1C9005D1430 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AB81CD2CADD1C9005D1430 /* Preview Assets.xcassets */; };
 		31AB81D52CADD210005D1430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB81D42CADD210005D1430 /* AppDelegate.swift */; };
 		31AB81D72CADD26B005D1430 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB81D62CADD26B005D1430 /* SceneDelegate.swift */; };
-		31AB81F62CADD461005D1430 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F42CADD461005D1430 /* EssentialFeed.framework */; };
-		31AB81F72CADD461005D1430 /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F42CADD461005D1430 /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		31AB81F82CADD461005D1430 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F52CADD461005D1430 /* EssentialFeediOS.framework */; };
-		31AB81F92CADD461005D1430 /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31AB81F52CADD461005D1430 /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31E3FB912CB316400005C32C /* FeedImageDataLoaderWithFallBackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E3FB822CB30AAB0005C32C /* FeedImageDataLoaderWithFallBackCompositeTests.swift */; };
 		31E3FB922CB316420005C32C /* FeedLoaderWithFallBackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122826B2CAEE0D400835F5E /* FeedLoaderWithFallBackCompositeTests.swift */; };
 		31F39B8C2CB5709D0014CC9D /* FeedImageDataLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F39B8B2CB5709D0014CC9D /* FeedImageDataLoaderCacheDecoratorTests.swift */; };
@@ -51,21 +49,6 @@
 			remoteInfo = EssentialApp;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		31AB81FA2CADD461005D1430 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				31AB81F72CADD461005D1430 /* EssentialFeed.framework in Embed Frameworks */,
-				31AB81F92CADD461005D1430 /* EssentialFeediOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		310B579E2CBC49D200305021 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CI_iOS.xctestplan; path = ../../EssentialFeed/CI_iOS.xctestplan; sourceTree = "<group>"; };
@@ -112,8 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31AB81F62CADD461005D1430 /* EssentialFeed.framework in Frameworks */,
-				31AB81F82CADD461005D1430 /* EssentialFeediOS.framework in Frameworks */,
+				31A49E5D2CBEB11A00DE756E /* EssentialFeed.framework in Frameworks */,
+				31A49E602CBEB11B00DE756E /* EssentialFeediOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +230,6 @@
 				31AB81BE2CADD1C8005D1430 /* Sources */,
 				31AB81BF2CADD1C8005D1430 /* Frameworks */,
 				31AB81C02CADD1C8005D1430 /* Resources */,
-				31AB81FA2CADD461005D1430 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -503,6 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -558,6 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
