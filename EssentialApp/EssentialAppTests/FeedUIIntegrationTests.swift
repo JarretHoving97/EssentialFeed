@@ -120,7 +120,7 @@ final class FeedUIIntergrationTests: XCTestCase {
     }
     
     
-    func test_feedImageView_cancelImageLoadingWhenNotVisibleAnymore() {
+    func test_feedImageView_cancelsImageLoadingWhenNotVisibleAnymore() {
         let image0 = makeImage(url: URL(string: "http://url-0.com")!)
         let image1 = makeImage(url: URL(string: "http://url-1.com")!)
         let (sut, loader) = makeSUT()
@@ -133,7 +133,7 @@ final class FeedUIIntergrationTests: XCTestCase {
         XCTAssertEqual(loader.cancelledImageURLs, [image0.url], "Expected one cancelled image URL request once first image is not visible anymore")
         
         sut.simulateFeedImageViewNotVisible(at: 1)
-        XCTAssertEqual(loader.cancelledImageURLs, [image0.url, image1.url], "Expected two cancelled image URL request once second image is also not visible anymore")
+        XCTAssertEqual(loader.cancelledImageURLs, [image0.url, image1.url], "Expected two cancelled image URL requests once second image is also not visible anymore")
     }
     
     func test_feedImageViewLoadingINdicator_isVisibleWhileLoadingImage() {
@@ -267,6 +267,7 @@ final class FeedUIIntergrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
 
         sut.simulateAppearance()
+        
         loader.completeFeedLoading(with: [image0, image1])
         XCTAssertEqual(loader.cancelledImageURLs, [], "Expected no cancelled image URL requests until image is not near visible")
 
@@ -322,9 +323,12 @@ final class FeedUIIntergrationTests: XCTestCase {
     
   
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (FeedViewController, loaderSpy) {
-        let loader = loaderSpy()
-        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader.loadPublisher, imageLoader: loader)
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (FeedViewController, LoaderSpy) {
+        let loader = LoaderSpy()
+        let sut = FeedUIComposer.feedComposedWith(
+            feedLoader: loader.loadPublisher,
+            imageLoader: loader.loadImageDataPublisherFrom
+        )
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         
@@ -367,13 +371,14 @@ final class FeedUIIntergrationTests: XCTestCase {
         return UIImage.make(withColor: .red).pngData()!
     }
     
-    
-    class loaderSpy: FeedLoader, FeedImageDataLoader {
-
+    class LoaderSpy: FeedLoader, FeedImageDataLoader {
+        
+        // MARK: - FeedLoader
+        
         private var feedRequests = [(FeedLoader.Result) -> Void]()
-    
+        
         var loadFeedCallCount: Int {
-          return feedRequests.count
+            return feedRequests.count
         }
         
         func load(completion: @escaping (FeedLoader.Result) -> Void) {
@@ -388,29 +393,28 @@ final class FeedUIIntergrationTests: XCTestCase {
             let error = NSError(domain: "an error", code: 0)
             feedRequests[index](.failure(error))
         }
-    
-
+        
         // MARK: - FeedImageDataLoader
         
         private struct TaskSpy: FeedImageDataLoaderTask {
-            let cancelCallBack: () -> Void
-            
+            let cancelCallback: () -> Void
             func cancel() {
-                cancelCallBack()
+                cancelCallback()
             }
         }
         
         private var imageRequests = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
         
         var loadedImageURLs: [URL] {
-            imageRequests.map { $0.url }
+            return imageRequests.map { $0.url }
         }
         
-        private(set) var cancelledImageURLs  = [URL]()
+        private(set) var cancelledImageURLs = [URL]()
         
         func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
             imageRequests.append((url, completion))
-            return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url)
+            return TaskSpy { [weak self] in
+                self?.cancelledImageURLs.append(url)
             }
         }
         
