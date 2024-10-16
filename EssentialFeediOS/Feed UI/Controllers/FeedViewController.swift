@@ -8,7 +8,7 @@
 import UIKit
 import EssentialFeed
 
-protocol FeedViewControllerDelegate {
+public protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
@@ -19,7 +19,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     
     private var loadingControllers = [IndexPath: FeedImageCellController]()
     
-    var delegate: FeedViewControllerDelegate?
+    public var delegate: FeedViewControllerDelegate?
     
     var tableModel = [FeedImageCellController]() {
         didSet {
@@ -46,6 +46,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         super.viewDidLayoutSubviews()
         tableView.sizeHeaderToFit()
     }
+    
     @IBAction private func refresh() {
         delegate?.didRequestFeedRefresh()
     }

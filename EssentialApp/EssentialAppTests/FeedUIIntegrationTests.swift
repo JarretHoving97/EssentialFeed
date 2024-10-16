@@ -1,3 +1,4 @@
+
 //
 //  FeedViewControllerTests.swift
 //  EssentialFeediOSTests
@@ -9,6 +10,7 @@ import XCTest
 import UIKit
 import EssentialFeed
 import EssentialFeediOS
+import EssentialApp
 
 
 final class FeedUIIntergrationTests: XCTestCase {
@@ -38,16 +40,13 @@ final class FeedUIIntergrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
-
-        XCTAssertTrue(sut.isShowingIndicator, "Expected loading indicator once view is loaded.")
-
+        XCTAssertTrue(sut.isShowingIndicator, "Expected loading indicator once view appears")
+        
         loader.completeFeedLoading(at: 0)
-        XCTAssertFalse(sut.isShowingIndicator, "Expected no loading indicator once loading is completed")
-
-        sut.simulateUserInitiatedFeedReload()
-        XCTAssertTrue(sut.isShowingIndicator, "Expected loading indicator once user initiates a reload")
+        XCTAssertFalse(sut.isShowingIndicator, "Expected no loading indicator once loading completes successfully")
         
         sut.simulateUserInitiatedFeedReload()
+        XCTAssertTrue(sut.isShowingIndicator, "Expected loading indicator once user initiates a reload")
         
         loader.completeFeedLoadingWithError(at: 1)
         XCTAssertFalse(sut.isShowingIndicator, "Expected no loading indicator once user initiated loading completes with error")
@@ -321,9 +320,11 @@ final class FeedUIIntergrationTests: XCTestCase {
     
     // MARK: Helpers
     
+  
+    
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (FeedViewController, loaderSpy) {
         let loader = loaderSpy()
-        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
+        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader.loadPublisher, imageLoader: loader)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         
